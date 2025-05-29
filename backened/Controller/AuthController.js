@@ -89,7 +89,7 @@ const getAllUsers = async (req, res) => {
         const userModel = new otherUserModel({name, email, phone,token});// creating a new user
         // userModel.password = await bcrypt.hash(password,10);// hashing the password and here 10 represents the number of rounds
         await userModel.save();// saving the user to the database
-        // sendSMS(phone);
+        sendSMS(phone);
 
         
 
