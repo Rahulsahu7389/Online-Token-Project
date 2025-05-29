@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const Prod = require('./Middlewares/ProductRouter.js');//importing the product router
 require('dotenv').config();
-// //now create env file
+//now create env file
 const AuthRouter = require('./Routes/AuthRouter.js');//importing the auth router
 
-// //mongoDB connection
+//mongoDB connection
 require('./Models/db.js');
 
 const PORT = process.env.PORT || 8080;
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());//allow cross-origin requests
 app.use(bodyParser.json());//parse json data
 app.use('/products',Prod)//use the product router for all routes starting with /products
-// app.use('/auth', AuthRouter);//use the auth router for all routes starting with /auth
+app.use('/auth', AuthRouter);//use the auth router for all routes starting with /auth
 
 
 app.get('/ping', (req, res) => {
